@@ -11781,7 +11781,8 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Answer: </strong></p>
+<p><strong>Answer: </strong>
+The problem should be the type of classification , because classification is mostly used to identify group membership and its output variable takes class labels, while regression involves estimating or predicting a response and its output takes continuous values.In this case, we have to find the class label of students, so it is a classification problem.</p>
 
 </div>
 </div>
@@ -11856,7 +11857,7 @@ div#notebook {
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO: Calculate number of students</span>
-<span class="n">n_students</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">student_data</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+<span class="n">n_students</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">student_data</span><span class="p">)</span> 
 
 <span class="c1"># TODO: Calculate number of features</span>
 <span class="n">n_features</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">student_data</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span> <span class="o">-</span><span class="mi">1</span> 
@@ -11868,7 +11869,7 @@ div#notebook {
 <span class="n">n_failed</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">student_data</span><span class="p">[</span><span class="n">student_data</span><span class="p">[</span><span class="s1">&#39;passed&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;no&#39;</span><span class="p">])</span>
 
 <span class="c1"># TODO: Calculate graduation rate</span>
-<span class="n">grad_rate</span> <span class="o">=</span> <span class="mi">100</span><span class="o">*</span><span class="n">n_passed</span><span class="o">/</span><span class="n">n_students</span>
+<span class="n">grad_rate</span> <span class="o">=</span><span class="mi">100</span> <span class="o">*</span> <span class="nb">float</span> <span class="p">(</span><span class="n">n_passed</span><span class="p">)</span> <span class="o">/</span> <span class="n">n_students</span> 
 
 <span class="c1"># Print the results</span>
 <span class="k">print</span> <span class="s2">&quot;Total number of students: {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n_students</span><span class="p">)</span>
@@ -11888,11 +11889,11 @@ div#notebook {
 
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Total number of students: 394
+<pre>Total number of students: 395
 Number of features: 30
 Number of students who passed: 265
 Number of students who failed: 130
-Graduation rate of the class: 67.00%
+Graduation rate of the class: 67.09%
 </pre>
 </div>
 </div>
@@ -12353,76 +12354,76 @@ The ensemble methods generally obtain better predictive performance than any of 
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Training a LogisticRegression using a training set size of 100. . .
-Trained model in 0.0025 seconds
+Trained model in 0.0017 seconds
 Made predictions in 0.0008 seconds.
 F1 score for training set: 0.8993.
-Made predictions in 0.0007 seconds.
+Made predictions in 0.0003 seconds.
 F1 score for test set: 0.7737.
 Training a LogisticRegression using a training set size of 200. . .
-Trained model in 0.0032 seconds
-Made predictions in 0.0010 seconds.
+Trained model in 0.0021 seconds
+Made predictions in 0.0005 seconds.
 F1 score for training set: 0.8656.
 Made predictions in 0.0003 seconds.
 F1 score for test set: 0.8000.
 Training a LogisticRegression using a training set size of 300. . .
-Trained model in 0.0028 seconds
+Trained model in 0.0026 seconds
 Made predictions in 0.0003 seconds.
 F1 score for training set: 0.8287.
-Made predictions in 0.0004 seconds.
+Made predictions in 0.0006 seconds.
 F1 score for test set: 0.7576.
 Training a SVC using a training set size of 100. . .
-Trained model in 0.0011 seconds
-Made predictions in 0.0008 seconds.
+Trained model in 0.0014 seconds
+Made predictions in 0.0009 seconds.
 F1 score for training set: 0.8889.
-Made predictions in 0.0008 seconds.
+Made predictions in 0.0007 seconds.
 F1 score for test set: 0.8312.
 Training a SVC using a training set size of 200. . .
-Trained model in 0.0031 seconds
-Made predictions in 0.0021 seconds.
+Trained model in 0.0055 seconds
+Made predictions in 0.0026 seconds.
 F1 score for training set: 0.8758.
-Made predictions in 0.0011 seconds.
+Made predictions in 0.0012 seconds.
 F1 score for test set: 0.8387.
 Training a SVC using a training set size of 300. . .
-Trained model in 0.0060 seconds
-Made predictions in 0.0054 seconds.
+Trained model in 0.0135 seconds
+Made predictions in 0.0098 seconds.
 F1 score for training set: 0.8709.
-Made predictions in 0.0021 seconds.
+Made predictions in 0.0044 seconds.
 F1 score for test set: 0.8108.
 Training a RandomForestClassifier using a training set size of 100. . .
-Trained model in 0.0304 seconds
-Made predictions in 0.0062 seconds.
+Trained model in 0.0708 seconds
+Made predictions in 0.0104 seconds.
 F1 score for training set: 0.9930.
-Made predictions in 0.0097 seconds.
+Made predictions in 0.0101 seconds.
 F1 score for test set: 0.7576.
 Training a RandomForestClassifier using a training set size of 200. . .
-Trained model in 0.0418 seconds
-Made predictions in 0.0077 seconds.
+Trained model in 0.0455 seconds
+Made predictions in 0.0236 seconds.
 F1 score for training set: 0.9965.
-Made predictions in 0.0241 seconds.
+Made predictions in 0.0157 seconds.
 F1 score for test set: 0.7681.
 Training a RandomForestClassifier using a training set size of 300. . .
-Trained model in 0.0764 seconds
-Made predictions in 0.0106 seconds.
+Trained model in 0.0696 seconds
+Made predictions in 0.0069 seconds.
 F1 score for training set: 0.9950.
-Made predictions in 0.0091 seconds.
+Made predictions in 0.0065 seconds.
 F1 score for test set: 0.7481.
 Training a GradientBoostingClassifier using a training set size of 100. . .
-Trained model in 0.1049 seconds
-Made predictions in 0.0006 seconds.
+Trained model in 0.0490 seconds
+Made predictions in 0.0008 seconds.
 F1 score for training set: 1.0000.
-Made predictions in 0.0005 seconds.
+Made predictions in 0.0007 seconds.
 F1 score for test set: 0.7826.
 Training a GradientBoostingClassifier using a training set size of 200. . .
-Trained model in 0.0833 seconds
-Made predictions in 0.0010 seconds.
+Trained model in 0.0871 seconds
+Made predictions in 0.0012 seconds.
 F1 score for training set: 0.9965.
-Made predictions in 0.0043 seconds.
+Made predictions in 0.0006 seconds.
 F1 score for test set: 0.8028.
 Training a GradientBoostingClassifier using a training set size of 300. . .
-Trained model in 0.1166 seconds
-Made predictions in 0.0016 seconds.
+Trained model in 0.0995 seconds
+Made predictions in 0.0012 seconds.
 F1 score for training set: 0.9732.
-Made predictions in 0.0008 seconds.
+Made predictions in 0.0007 seconds.
 F1 score for test set: 0.7704.
 </pre>
 </div>
@@ -12637,13 +12638,21 @@ At the training period, the model tries to construct a hyperplane which looks li
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO: Import &#39;GridSearchCV&#39; and &#39;make_scorer&#39;</span>
 <span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">svm</span><span class="p">,</span> <span class="n">grid_search</span>
-<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">fbeta_score</span><span class="p">,</span> <span class="n">make_scorer</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">f1_score</span><span class="p">,</span> <span class="n">make_scorer</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">normalize</span>
+<span class="n">X_train</span> <span class="o">=</span> <span class="n">normalize</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+<span class="n">X_test</span> <span class="o">=</span> <span class="n">normalize</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+
+<span class="n">C_range</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">23</span><span class="p">)</span>
+<span class="n">gamma_range</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">23</span><span class="p">)</span>
+<span class="n">parameters</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">gamma</span><span class="o">=</span><span class="n">gamma_range</span><span class="p">,</span> <span class="n">C</span><span class="o">=</span><span class="n">C_range</span><span class="p">)</span>
 
 <span class="c1"># TODO: Create the parameters list you wish to tune</span>
-<span class="n">parameters</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;kernel&#39;</span><span class="p">:(</span><span class="s1">&#39;linear&#39;</span><span class="p">,</span> <span class="s1">&#39;rbf&#39;</span><span class="p">),</span><span class="s1">&#39;C&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">1000</span><span class="p">],</span> <span class="s1">&#39;gamma&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.0001</span><span class="p">,</span> <span class="mf">0.001</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">]}</span>
+<span class="c1"># parameters = {&#39;kernel&#39;:(&#39;linear&#39;, &#39;rbf&#39;),&#39;C&#39;: [0.1, 1, 100, 1000], &#39;gamma&#39;: [0.0001, 1, 10, 100]}</span>
 
 <span class="c1"># TODO: Initialize the classifier</span>
-<span class="n">clf</span> <span class="o">=</span><span class="n">svm</span><span class="o">.</span><span class="n">SVC</span><span class="p">()</span>
+<span class="n">my_rs</span> <span class="o">=</span> <span class="mi">66</span>
+<span class="n">clf</span> <span class="o">=</span><span class="n">svm</span><span class="o">.</span><span class="n">SVC</span><span class="p">(</span><span class="n">random_state</span> <span class="o">=</span> <span class="n">my_rs</span><span class="p">)</span>
 
 <span class="c1"># TODO: Make an f1 scoring function using &#39;make_scorer&#39; </span>
 <span class="n">f1_scorer</span> <span class="o">=</span> <span class="n">make_scorer</span><span class="p">(</span><span class="n">f1_score</span><span class="p">,</span> <span class="n">pos_label</span><span class="o">=</span><span class="s2">&quot;yes&quot;</span><span class="p">)</span>
@@ -12686,10 +12695,10 @@ At the training period, the model tries to construct a hyperplane which looks li
 
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Made predictions in 0.0070 seconds.
-Tuned model has a training F1 score of 0.9804.
-Made predictions in 0.0029 seconds.
-Tuned model has a testing F1 score of 0.8258.
+<pre>Made predictions in 0.0038 seconds.
+Tuned model has a training F1 score of 0.8472.
+Made predictions in 0.0013 seconds.
+Tuned model has a testing F1 score of 0.8219.
 </pre>
 </div>
 </div>
@@ -12714,7 +12723,7 @@ Tuned model has a testing F1 score of 0.8258.
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer: </strong>
-the F1 training score is 0.9804  and the testing score is 0.8258 . it is a little higher than that of the untuned model when all the training set is used, but still lower than the score of the 200 examples set, so that means the data quality is as important as the model tuning?</p>
+the F1 training score is 0.8472  and the testing score is 0.8219 . it is a little higher than that of the untuned model when all the training set is used, but still lower than the score of the 200 examples set, so that means the data quality is as important as the model tuning?</p>
 
 </div>
 </div>
