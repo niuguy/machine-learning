@@ -1,4 +1,4 @@
-Thank you for your valuable time, resources and notes 
+Thank you for your valuable time, resources and notes presented as below:
 
 1. The training data can be found at https://www.kaggle.com/c/msk-redefining-cancer-treatment/data , names are training_text.zip, training_variants.zip
 
