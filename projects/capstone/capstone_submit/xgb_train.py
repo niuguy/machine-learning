@@ -62,19 +62,6 @@ def extend_gene_variant_features(raw_df):
     return np.hstack((df.values, gene_vectorized, variation_vectorized))
 
 
-def lr_fit(train_x, train_y):
-
-    # probas = cross_val_predict(LogisticRegression(), train_x, train_y, cv=StratifiedKFold(random_state=8),
-    #                           n_jobs=-1, method='predict_proba', verbose=2)
-
-    clf = SVC()
-    clf.fit(train_x, train_y)
-    probas = clf.predict_proba(train_x)
-    pred_indices = np.argmax(probas, axis=1)
-    classes = np.unique(train_y)
-    preds = classes[pred_indices]
-    print('LR Accuracy: {}'.format(accuracy_score(train_y, preds)))
-    print('LR Log loss: {}'.format(log_loss(train_y, probas)))
 
 def xgb_cv_fit(train_X, train_y):
 
@@ -158,8 +145,6 @@ def main():
 
     # print "train_x"
 
-    # logistic benchmark
-    lr_fit(train_x, train_y)
     # xgb boost
     xgb_cv_fit(train_x, train_y)
 
