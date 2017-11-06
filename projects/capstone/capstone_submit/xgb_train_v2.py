@@ -11,7 +11,10 @@ import xgboost as xgb
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import cross_val_predict
 from sklearn.model_selection import StratifiedKFold
+from sklearn.naive_bayes import GaussianNB
 from sklearn.svm import SVC
+from xgboost import plot_importance
+from matplotlib import pyplot
 
 import nltk
 
@@ -62,6 +65,15 @@ def extend_gene_variant_features(raw_df):
     return np.hstack((df.values, gene_vectorized, variation_vectorized))
 
 
+def benchmark_fit(clf, train_x, train_y):
+
+    probas = cross_val_predict(clf, train_x, train_y, cv=5,
+                                            n_jobs=-1, method='predict_proba', verbose=2)
+    pred_indices = np.argmax(probas, axis=1)
+    classes = np.unique(train_y)
+    preds = classes[pred_indices]
+    print('Accuracy: {}'.format(accuracy_score(train_y, preds)))
+    print('Log loss: {}'.format(log_loss(train_y, probas)))
 
 def xgb_cv_fit(train_X, train_y):
 
@@ -74,13 +86,19 @@ def xgb_cv_fit(train_X, train_y):
     model.fit(train_X, train_y)
 
     probas = model.predict_proba(train_X)
+
     print("xgb best accuracy : %0.3f" % model.best_score_)
     print("xgb best parameters set:")
     best_parameters = model.best_estimator_.get_params()
+    print 'feature importance', model.best_estimator_.feature_importances_
     for param_name in sorted(param_grid.keys()):
         print("\t%s: %r" % (param_name, best_parameters[param_name]))
 
     print('xgb log loss: {}'.format(log_loss(train_y, probas)))
+
+    # plot feature importance
+    pyplot.bar(range(len(model.best_estimator_.feature_importances_)), model.best_estimator_.feature_importances_)
+    pyplot.show()
 
 
 def run_xgb(train_X, train_y, test_X, test_y=None, feature_names=None, seed_val=0, num_rounds=1000):
@@ -145,7 +163,17 @@ def main():
 
     # print "train_x"
 
-    # xgb boost
+    # Naive Bayes
+    print 'Bayes start'
+    clf = GaussianNB()
+    benchmark_fit(clf, train_x, train_y)
+    #
+    # # SVM benchmark
+    print 'SVC start'
+    clf = SVC(probability=True)
+    benchmark_fit(clf, train_x, train_y)
+    #xgboost #
+    print 'Xgboost start'
     xgb_cv_fit(train_x, train_y)
 
     print 'Training DONE'
